@@ -12,7 +12,80 @@ st.set_page_config(page_title="House Price Predictor", layout="wide")
 st.title("🏠 House Price Predictor")
 st.write("Предсказание цен на дома с использованием обученной модели GradientBoostingRegressor")
 
+<<<<<<< HEAD
 # ========== ЗАГРУЗКА МОДЕЛИ ==========
+=======
+# CSS стили
+st.markdown("""
+<style>
+    .main-header {
+        font-size: 2.8rem;
+        color: #1E3A8A;
+        text-align: center;
+        margin-bottom: 1rem;
+        font-weight: 700
+        background: linear-gradient(45deg, #1E3A8A, #3B82F6);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    .sub-header {
+        font-size: 1.8rem;
+        color: #2563EB;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        border-bottom: 2px solid #3B82F6;
+        padding-bottom: 0.5rem;
+    }
+    .metric-card {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 1.5rem;
+        border-radius: 15px;
+        margin: 0.5rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .prediction-card {
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        color: white;
+        padding: 2rem;
+        border-radius: 15px;
+        margin: 1rem 0;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+    .info-card {
+        background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        color: white;
+        padding: 1rem;
+        border-radius: 10px;
+        margin: 0.5rem 0;
+    }
+</style>
+""", unsafe_allow_html=True)
+
+# Заголовок приложения
+st.markdown('<h1 class="main-header">🏠 AI House Price Predictor</h1>', unsafe_allow_html=True)
+st.markdown("### *Точное предсказание цен на недвижимость с помощью Machine Learning*")
+
+# Сайдбар
+with st.sidebar:
+    st.markdown("## ⚙️ Настройки")
+    
+    # Выбор модели
+    st.markdown("### 🧠 Выбор модели")
+    model_files = ["GB_model.pkl"]
+    
+    selected_model = st.selectbox(
+        "Выберите модель для предсказания:",
+        model_files,
+        help="Выберите обученную модель из доступных"
+    )
+    
+    st.markdown("### ⚡ Быстрый режим")
+    quick_mode = st.checkbox("Использовать быстрый режим", value=True,
+                           help="Использовать только основные признаки для быстрого предсказания")
+
+# Функция для загрузки модели
+>>>>>>> 6c19fa72d551039bc65b83c5cd466257bbd66115
 @st.cache_resource
 def load_model():
     try:
